@@ -534,6 +534,26 @@ em {
 .tcard h3 small { display: block; margin-top: .35em; font: 600 .82rem var(--f-ui); letter-spacing: .06em; color: var(--arena); }
 .tcard p { color: rgba(244, 236, 225, .8); max-width: 30em; }
 .tcard .btn { margin-top: .6rem; }
+.tcard__vt small { display: block; margin-block-start: .45em; font: 600 .8rem/1.2 var(--f-ui); letter-spacing: .06em; color: var(--arena); }
+.tcard .tcard__hl { margin: 0 0 .7rem; font: 700 .72rem/1.5 var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--azul-claro); }
+
+/* Folletos de cada tratamiento (bajo el acordeón) */
+.tinfo { margin-top: clamp(44px, 7vw, 80px); }
+.tinfo__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; margin-bottom: 22px; }
+.tinfo__t { margin: 0; font: 600 clamp(1.6rem, 4.6vw, 2.1rem)/1.1 var(--f-display); color: var(--crema); }
+.tinfo__hint { margin: 0; font: 600 .85rem var(--f-ui); color: rgba(244, 236, 225, .65); }
+.tinfo__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.tinfo__item { display: flex; flex-direction: column; align-items: stretch; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: zoom-in; }
+.tinfo__img { position: relative; display: block; width: 100%; overflow: hidden; border-radius: 18px; border: 1px solid rgba(244, 236, 225, .16); background: var(--lino); box-shadow: 0 30px 50px -28px rgba(0, 0, 0, .8); }
+.tinfo__img img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; transition: transform 1.2s var(--ease); }
+.tinfo__img::after { content: '+'; position: absolute; right: 10px; top: 10px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: rgba(36, 21, 13, .78); color: var(--crema); font: 700 1.15rem/1 var(--f-ui); transition: transform .5s var(--ease); }
+.tinfo__item:hover .tinfo__img img { transform: scale(1.05); }
+.tinfo__item:hover .tinfo__img::after { transform: rotate(90deg) scale(1.1); }
+.tinfo__lbl { display: block; margin-top: 12px; font: 600 .95rem/1.3 var(--f-ui); text-align: left; color: var(--crema); }
+.tinfo__lbl small { display: block; margin-top: 2px; font-weight: 500; font-size: .82rem; color: var(--arena); }
+@media (min-width: 768px) {
+  .tinfo__list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+}
 
 /* ---------- 12. Cobertura ---------- */
 .reach { padding: var(--sec) 0; background: var(--crema); }
@@ -596,6 +616,31 @@ em {
 .lightbox figcaption { color: var(--crema); font: 600 .95rem var(--f-ui); text-align: center; }
 .lightbox__close { position: absolute; top: calc(16px + env(safe-area-inset-top)); right: 16px; width: 48px; height: 48px; border: 1px solid rgba(244, 236, 225, .35); border-radius: 50%; background: rgba(255, 255, 255, .08); color: var(--crema); font: 400 1.8rem/1 var(--f-ui); cursor: pointer; transition: transform .4s var(--ease), background .3s; }
 .lightbox__close:hover { transform: rotate(90deg); background: rgba(255, 255, 255, .18); }
+
+/* ---------- 13b. Testimonios ---------- */
+.proof { position: relative; padding: var(--sec) 0; background: var(--crema); overflow: clip; }
+.proof::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(46% 38% at 100% 0%, rgba(58, 165, 216, .12), transparent 70%), radial-gradient(40% 34% at 0% 100%, rgba(154, 101, 66, .12), transparent 70%); }
+.proof .wrap { position: relative; }
+.proof__lead { margin: 1.4rem 0 0; max-width: 46ch; font-size: clamp(1rem, 2.6vw, 1.15rem); color: var(--tinta-suave); }
+.proof__list { display: flex; gap: 16px; margin: clamp(36px, 6vw, 64px) calc(var(--pad) * -1) 0; padding: 4px var(--pad) 26px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--pad); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.proof__list::-webkit-scrollbar { display: none; }
+.quote { position: relative; display: flex; flex-direction: column; flex: none; width: min(84vw, 360px); margin: 0; padding: 30px 28px 26px; scroll-snap-align: start; border-radius: var(--r); border: 1px solid rgba(90, 53, 35, .12); background: var(--lino); box-shadow: 0 30px 60px -44px rgba(59, 36, 24, .5); }
+.quote::before { content: '\201C'; content: '\201C' / ''; position: absolute; top: 16px; right: 24px; font: 600 5rem/.7 var(--f-display); color: var(--azul); opacity: .3; pointer-events: none; }
+.quote__stars { margin: 0 0 16px; font-size: 1.05rem; line-height: 1; letter-spacing: .2em; color: #d29a38; }
+.quote blockquote { flex: 1; margin: 0; }
+.quote blockquote p { margin: 0 0 .85em; font-size: 1.02rem; line-height: 1.65; color: var(--tinta); }
+.quote blockquote p:last-child { margin-bottom: 0; }
+.quote figcaption { display: flex; flex-direction: column; gap: 3px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(90, 53, 35, .14); }
+.quote figcaption b { font: 700 .95rem/1.3 var(--f-ui); color: var(--cacao-800); }
+.quote figcaption small { font: 700 .68rem/1.3 var(--f-ui); letter-spacing: .16em; text-transform: uppercase; color: var(--azul-prof); }
+
+@media (min-width: 768px) {
+  .proof__list { display: block; columns: 2; column-gap: 18px; margin-inline: 0; padding: 0; overflow: visible; scroll-snap-type: none; }
+  .quote { width: auto; margin: 0 0 18px; break-inside: avoid; }
+}
+@media (min-width: 1100px) {
+  .proof__list { columns: 3; }
+}
 
 /* ---------- 14. Contacto ---------- */
 .contact { position: relative; padding: var(--sec) 0; background: radial-gradient(60% 50% at 0% 0%, rgba(58, 165, 216, .16), transparent 70%), radial-gradient(50% 40% at 100% 100%, rgba(154, 101, 66, .26), transparent 70%), var(--cacao-900); color: var(--crema); overflow: clip; }
